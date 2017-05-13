@@ -18,9 +18,6 @@ pipeline {
       steps {
         echo 'In the pre-build step. Install dependencies, run pre-build tests, etc. here.'
         //Install npm ,first run
-        // sh 'wget https://npmjs.org/install.sh'
-        // sh 'chmod +x install.sh'
-        // sh './install.sh'
         sh "python3 --version"
         sh "pip install awscli --upgrade --user"
         sh "export PATH=~/.local/bin:/usr/bin/aws:$PATH"
@@ -31,8 +28,8 @@ pipeline {
         sh "aws configure set aws_secret_access_key 7xqjJTnCsuXfy+e638G1Hkn8WVdrBT1NDpXpdj0Q"
         sh "aws configure set default.region us-west-2"
         sh "aws configure list"
-        //Install serverless
-        sh 'npm install -g serverless'
+        //Install serverless manually on server
+        //sh 'npm install -g serverless'
         sh 'node -v'
         sh 'serverless --version'
       }
