@@ -17,11 +17,24 @@ pipeline {
     stage('prebuild') {
       steps {
         echo 'In the pre-build step. Install dependencies, run pre-build tests, etc. here.'
-        sh 'wget https://npmjs.org/install.sh'
-        sh 'chmod +x install.sh'
-        sh './install.sh'
+        //Install npm ,first run
+        // sh 'wget https://npmjs.org/install.sh'
+        // sh 'chmod +x install.sh'
+        // sh './install.sh'
+        sh "python3 --version"
+        sh "pip --version"
+        sh "pip install --upgrade --user awsebcli"
+        // This is for run only the first time
+        sh "aws configure set aws_access_key_id AKIAJIDUT4ZRSFSD7HUA"
+        sh "aws configure set aws_secret_access_key 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"
+        sh "aws configure set default.region us-west-2"
+        sh "aws configure list"
+        sh "npm install"
+        sh 'apt-get install nodejs-legacy'
+        //Install serverless
+        sh 'npm install -g serverless'
         sh 'node -v'
-        sh 'serverless'
+        sh 'serverless --version'
       }
     }
     stage('dev') {
