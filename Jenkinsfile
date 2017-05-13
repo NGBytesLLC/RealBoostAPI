@@ -32,6 +32,7 @@ pipeline {
         //sh 'npm install -g serverless'
         //sh "export PATH=/usr/bin/serverless:$PATH"
         sh 'node -v'
+        sh "aws ec2 describe-instances"
         sh 'serverless --version'
       }
     }
