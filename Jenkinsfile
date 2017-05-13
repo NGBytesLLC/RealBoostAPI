@@ -24,7 +24,7 @@ pipeline {
         sh "python3 --version"
         sh "export PATH=~/.local/bin:$PATH"
         sh "pip --version"
-        sh "pip install --upgrade --user awsebcli"
+        sh "pip install --upgrade --user awscli"
         // This is for run only the first time
         sh "aws configure set aws_access_key_id AKIAJIDUT4ZRSFSD7HUA"
         sh "aws configure set aws_secret_access_key 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"
@@ -69,18 +69,6 @@ pipeline {
         echo 'In the live build step.'
          sh "serverless deploy --stage live"
       }
-    }
-  }
-  post {
-    success {
-      slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' ")
-    }
-    failure {
-      slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-    }
-
-    always {
-       slackSend (color: '#00FF00', message: "COMPLETE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
     }
   }
 
