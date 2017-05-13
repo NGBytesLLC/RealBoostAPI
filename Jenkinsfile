@@ -22,7 +22,6 @@ pipeline {
         // sh 'chmod +x install.sh'
         // sh './install.sh'
         sh "python3 --version"
-        sh "apt-get install python-pip --yes"
         sh "export PATH=~/.local/bin:$PATH"
         sh "pip --version"
         sh "pip install --upgrade --user awsebcli"
