@@ -50,7 +50,7 @@ pipeline {
         sh 'serverless deploy --stage live'
       }
     }
-    stage('') {
+    stage('error') {
       steps {
         slackSend 'dasdas'
       }
