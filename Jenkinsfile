@@ -25,6 +25,7 @@ pipeline {
         sh "curl -O https://bootstrap.pypa.io/get-pip.py"
         sh "python get-pip.py --user"
         sh "export PATH=~/.local/bin:$PATH"
+        sh "source ~/.profile"
         sh "which pip"
         sh "pip --version"
         sh "pip install --upgrade --user awsebcli"
