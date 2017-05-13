@@ -22,7 +22,6 @@ pipeline {
         sh "pip install awscli --upgrade --user"
         sh "export PATH=~/.local/bin:/usr/bin/aws:$PATH"
         sh "pip --version" 
-       
         // This is for run only the first time
         //Install serverless manually on server
         //sh 'npm install -g serverless'
