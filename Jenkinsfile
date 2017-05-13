@@ -69,7 +69,7 @@ pipeline {
     }
 
     always {
-      slackSend (color: '#00FF00', message: "COMPLETE: Job '${env.GIT_COMMIT} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+      slackSend (color: '#00FF00', message: "COMPLETE: Job '${env.GIT_COMMIT} ${env.GIT_BRANCH} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
     }
   }
 
