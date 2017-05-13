@@ -22,9 +22,8 @@ pipeline {
         // sh 'chmod +x install.sh'
         // sh './install.sh'
         sh "python3 --version"
-        sh "curl -O https://bootstrap.pypa.io/get-pip.py"
-        sh "python get-pip.py --user"
-        sh "export PATH=~/.local/bin:/var/lib/jenkins/.local/lib/python2.7/site-packages:$PATH"
+        sh "apt-get install python-pip"
+        sh "export PATH=~/.local/bin:$PATH"
         sh "pip --version"
         sh "pip install --upgrade --user awsebcli"
         // This is for run only the first time
