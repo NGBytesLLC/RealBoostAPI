@@ -24,8 +24,8 @@ pipeline {
         sh "pip --version" 
        
         // This is for run only the first time
-        sh "aws configure set aws_access_key_id AKIAJIDUT4ZRSFSD7HUA"
-        sh "aws configure set aws_secret_access_key 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"
+        sh "aws configure set aws_access_key_id AKIAJX23IOOQ4FMAKWUQ"
+        sh "aws configure set aws_secret_access_key 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"
         sh "aws configure set default.region us-west-2"
         sh "aws configure list"
         //Install serverless manually on server
