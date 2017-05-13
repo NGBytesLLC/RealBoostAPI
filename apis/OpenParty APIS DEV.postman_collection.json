@@ -1,0 +1,97 @@
+{
+	"variables": [],
+	"info": {
+		"name": "OpenParty APIS DEV",
+		"_postman_id": "73ddc211-36c8-ec47-dbf0-cbc0588aa927",
+		"description": "All endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Venue By Id",
+			"request": {
+				"url": "https://s8izlgx9h5.execute-api.us-west-2.amazonaws.com/dev/venues/3",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "get Venue By ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Events By Filters",
+			"request": {
+				"url": "https://s8izlgx9h5.execute-api.us-west-2.amazonaws.com/dev/events/?date=4/17/2017&venue=2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get All Events filtered by date and/or venue"
+			},
+			"response": []
+		},
+		{
+			"name": "Pricing Tables By Venue and Date",
+			"request": {
+				"url": "https://s8izlgx9h5.execute-api.us-west-2.amazonaws.com/dev/venues/3/tablepricing?date=4/17/2017",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accepts",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "//Authorization",
+						"value": "",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Get all the information for the pricing tables using the ID for a venue in a specific date"
+			},
+			"response": []
+		},
+		{
+			"name": "Venues by Type",
+			"request": {
+				"url": "https://s8izlgx9h5.execute-api.us-west-2.amazonaws.com/dev/venues?type=nightclub",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "get Venues by Type, type can be optional"
+			},
+			"response": []
+		}
+	]
+}

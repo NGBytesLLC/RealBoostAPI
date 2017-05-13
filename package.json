@@ -1,0 +1,19 @@
+{
+  "name": "RealBoostAPI",
+  "version": "1.0.0",
+  "description": "Serverless CRUD service exposing a REST HTTP interface",
+  "author": "Julio Garcia",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.6.7",
+    "form-data": "^2.1.4",
+    "http-post": "^0.1.1",
+    "request": ">=2.8.0",
+    "serverless-resources-env": "^0.3.0",
+    "shelljs": ">=0.7.0",
+    "uuid": "^2.0.3"
+  },
+  "scripts": {
+     "start": "node app.js"
+    }
+}

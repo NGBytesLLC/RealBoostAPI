@@ -1,2 +1,1 @@
-# RealBoostAPI
 Real Boost API

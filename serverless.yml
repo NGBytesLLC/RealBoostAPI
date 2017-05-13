@@ -1,0 +1,28 @@
+service: real-boost-api-project
+frameworkVersion: ">=1.1.0 <2.0.0"
+custom:
+  environment:
+     stage: "${opt:stage, self:provider.stage}"
+provider:
+  name: aws
+  profile: ngbytes
+  runtime: nodejs4.3
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+      Resource: "arn:aws:dynamodb:us-west-2:*:*"
+  stage: ${self:provider.environment.custom_stage}
+  region: us-west-2
+  environment:
+    custom_stage: ${opt:stage}
+functions:
+  create_message:
+    handler: endpoints/message/create.create
+    events:
+      - http:
+          path: message/create
+          method: get
+          cors: true
+
+
