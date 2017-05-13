@@ -17,7 +17,9 @@ pipeline {
     stage('prebuild') {
       steps {
         echo 'In the pre-build step. Install dependencies, run pre-build tests, etc. here.'
-        sh "./stages/install_node.sh"
+        sh 'wget https://npmjs.org/install.sh'
+        sh 'chmod +x install.sh'
+        sh './install.sh'
         sh 'node -v'
         sh 'serverless'
       }
