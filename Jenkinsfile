@@ -13,11 +13,13 @@ pipeline {
       name: 'version_incr'
     )
   }
-  
+
   stages {
     stage('prebuild') {
       steps {
         echo 'In the pre-build step. Install dependencies, run pre-build tests, etc. here.'
+        sh 'curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -'
+        sh 'sudo apt-get install -y nodejs'
         sh 'npm install npm@latest -g'
         sh 'node -v'
         sh 'serverless'
