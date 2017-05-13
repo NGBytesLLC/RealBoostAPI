@@ -31,8 +31,6 @@ pipeline {
         sh "aws configure set aws_secret_access_key 7xqjJTnCsuXfy+e638G1Hkn8WVdrBT1NDpXpdj0Q"
         sh "aws configure set default.region us-west-2"
         sh "aws configure list"
-        sh "npm install"
-        sh 'apt-get install nodejs-legacy'
         //Install serverless
         sh 'npm install -g serverless'
         sh 'node -v'
