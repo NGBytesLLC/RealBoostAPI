@@ -69,8 +69,7 @@ pipeline {
     }
 
     always {
-      slackSend (color: '#00FF00', message: "COMPLETE: Job '
-      ${env.GIT_COMMITTER_NAME} ${env.GIT_BRANCH}${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}${env.GIT_PREVIOUS_COMMIT}${env.GIT_BRANCH}${env.GIT_AUTHOR_NAME}${env.GIT_COMMITTER_NAME}${env.GIT_AUTHOR_EMAIL}${env.GIT_COMMITTER_EMAIL} [${env.BUILD_NUMBER}]'
+      slackSend (color: '#00FF00', message: "COMPLETE: Job '${env.GIT_COMMITTER_NAME} ${env.GIT_BRANCH}${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}${env.GIT_PREVIOUS_COMMIT}${env.GIT_BRANCH}${env.GIT_AUTHOR_NAME}${env.GIT_COMMITTER_NAME}${env.GIT_AUTHOR_EMAIL}${env.GIT_COMMITTER_EMAIL} [${env.BUILD_NUMBER}]'
        (${env.BUILD_URL})")
     }
   }
