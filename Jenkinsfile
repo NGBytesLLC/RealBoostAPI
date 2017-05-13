@@ -18,6 +18,9 @@ pipeline {
     stage('prebuild') {
       steps {
         echo 'In the pre-build step. Install dependencies, run pre-build tests, etc. here.'
+        sh 'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash'
+        sh '. ~/.nvm/nvm.sh'
+        sh 'nvm install 4.4.5'
         sh 'node -v'
         sh 'serverless'
       }
