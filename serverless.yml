@@ -23,6 +23,6 @@ functions:
           path: message/create
           method: get
           cors: true
-          
+        
 
 
