@@ -25,7 +25,6 @@ pipeline {
         sh "curl -O https://bootstrap.pypa.io/get-pip.py"
         sh "python get-pip.py --user"
         sh "export PATH=~/.local/bin:/var/lib/jenkins/.local/lib/python2.7/site-packages:$PATH"
-        sh "which pip"
         sh "pip --version"
         sh "pip install --upgrade --user awsebcli"
         // This is for run only the first time
