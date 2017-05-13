@@ -22,9 +22,10 @@ pipeline {
         // sh 'chmod +x install.sh'
         // sh './install.sh'
         sh "python3 --version"
-        sh "export PATH=~/.local/bin:$PATH"
-        sh "pip --version"
         sh "pip install awscli --upgrade --user"
+        sh "export PATH=~/.local/bin:/usr/local/bin/aws:$PATH"
+        sh "pip --version" 
+       
         // This is for run only the first time
         sh "aws configure set aws_access_key_id AKIAJIDUT4ZRSFSD7HUA"
         sh "aws configure set aws_secret_access_key 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"
