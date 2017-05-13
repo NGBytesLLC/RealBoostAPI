@@ -18,12 +18,15 @@ module.exports.list = (event, context, callback) => {
       callback(new Error('Couldn\'t fetch the users messages.'));
       return;
     }
+    const data = {
+    	data: JSON.stringify(result.Items),
+    	message: ""
+    	success: true
+    }
 
-    // create a response
-    //testing the sync with Jenkins
     const response = {
       statusCode: 200,
-      body: JSON.stringify(result.Items),
+      body: data,
     };
     callback(null, response);
   });
