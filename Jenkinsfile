@@ -69,7 +69,7 @@ pipeline {
     }
 
     always {
-      slackSend (color: '#00FF00', message: "COMPLETE: Job '${env.GIT_COMMITTER_NAME} ${env.GIT_BRANCH}${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}${env.GIT_PREVIOUS_COMMIT}${env.GIT_BRANCH}${env.GIT_AUTHOR_NAME}${env.GIT_COMMITTER_NAME}${env.GIT_AUTHOR_EMAIL}${env.GIT_COMMITTER_EMAIL} [${env.BUILD_NUMBER}]'(${env.BUILD_URL})")
+      slackSend (color: '#00FF00', message: "COMPLETE: Job '${env.BUILD_URL} ${env.GIT_BRANCH}${env.CHANGES_SINCE_LAST_BUILD}Not all revision systems support %d and %r${env.GIT_PREVIOUS_COMMIT}${env.GIT_BRANCH}${env.GIT_AUTHOR_NAME}${env.GIT_COMMITTER_NAME}${env.GIT_AUTHOR_EMAIL}${env.GIT_COMMITTER_EMAIL} [${env.BUILD_NUMBER}]'(${env.BUILD_URL})")
     }
   }
 
