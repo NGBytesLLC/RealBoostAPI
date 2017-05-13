@@ -30,7 +30,7 @@ pipeline {
         sh "aws configure list"
         //Install serverless manually on server
         //sh 'npm install -g serverless'
-        sh "export PATH=/usr/bin/serverless:$PATH"
+        //sh "export PATH=/usr/bin/serverless:$PATH"
         sh 'node -v'
         sh 'serverless --version'
       }
@@ -51,10 +51,6 @@ pipeline {
       }
       steps {
         echo 'In the test build step.'
-        sh "./build/testCaller.sh test ${params.version_incr}"
-        //sshagent (credentials: ['GVT Robot']) {
-        //  sh 'git push --tags'
-        //}
         sh "serverless deploy --stage test"
       }
     }

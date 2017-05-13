@@ -5,7 +5,6 @@ custom:
      stage: "${opt:stage, self:provider.stage}"
 provider:
   name: aws
-  profile: ngbytes
   runtime: nodejs4.3
   iamRoleStatements:
     - Effect: Allow
