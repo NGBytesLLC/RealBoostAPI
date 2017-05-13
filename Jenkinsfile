@@ -13,14 +13,11 @@ pipeline {
       name: 'version_incr'
     )
   }
-
   stages {
     stage('prebuild') {
       steps {
         echo 'In the pre-build step. Install dependencies, run pre-build tests, etc. here.'
-        sh 'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash'
-        sh '/var/lib/jenkins/.nvm/nvm.sh'
-        sh '/var/lib/jenkins/.nvm/nvm.sh install 4.4.5'
+        sh "./stages/install_node.sh"
         sh 'node -v'
         sh 'serverless'
       }
@@ -41,6 +38,10 @@ pipeline {
       }
       steps {
         echo 'In the test build step.'
+        sh "./build/testCaller.sh test ${params.version_incr}"
+        //sshagent (credentials: ['GVT Robot']) {
+        //  sh 'git push --tags'
+        //}
         sh "serverless deploy --stage test"
       }
     }
