@@ -29,6 +29,13 @@ functions:
           path: message/create
           method: get
           cors: true
+  list_message:
+    handler: endpoints/message/list.list
+    events:
+      - http:
+          path: message/list
+          method: get
+          cors: true
 
 resources:
   Resources:
