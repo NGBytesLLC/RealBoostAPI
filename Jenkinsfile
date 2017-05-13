@@ -30,6 +30,7 @@ pipeline {
         sh "aws configure list"
         //Install serverless manually on server
         //sh 'npm install -g serverless'
+        sh "export PATH=/usr/bin/serverless:$PATH"
         sh 'node -v'
         sh 'serverless --version'
       }
