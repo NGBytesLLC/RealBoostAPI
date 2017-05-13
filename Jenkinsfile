@@ -20,7 +20,7 @@ pipeline {
         echo 'In the pre-build step. Install dependencies, run pre-build tests, etc. here.'
         sh 'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash'
         sh '/var/lib/jenkins/.nvm/nvm.sh'
-        sh '/var/lib/jenkins/.nvm/nvm install 4.4.5'
+        sh '/var/lib/jenkins/.nvm/nvm.sh install 4.4.5'
         sh 'node -v'
         sh 'serverless'
       }
