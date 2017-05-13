@@ -18,9 +18,6 @@ pipeline {
     stage('prebuild') {
       steps {
         echo 'In the pre-build step. Install dependencies, run pre-build tests, etc. here.'
-        sh 'echo prefix = ~/local >> ~/.npmrc'
-        sh 'curl https://www.npmjs.org/install.sh | sh'
-        sh 'npm install npm@latest -g'
         sh 'node -v'
         sh 'serverless'
       }
