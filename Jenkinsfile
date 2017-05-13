@@ -23,7 +23,8 @@ pipeline {
         // sh './install.sh'
         sh "python3 --version"
         sh "pip install awscli --upgrade --user"
-        sh "export PATH=~/.local/bin:/usr/local/bin/aws:$PATH"
+        sh "apt install awscli"
+         sh "export PATH=~/.local/bin:~/usr/local/bin/aws:$PATH"
         sh "pip --version" 
        
         // This is for run only the first time
