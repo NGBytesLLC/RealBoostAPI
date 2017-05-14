@@ -14,7 +14,6 @@ module.exports.create = (event, context, callback) => {
       body: JSON.stringify(event.body),
     };	
    const requestBody = JSON.parse(event.body);
-console.log(requestBody);
     callback(null, response);
 
       return;
