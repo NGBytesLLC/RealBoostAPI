@@ -9,7 +9,11 @@
  module.exports.create = (event, context, callback) => {
    const timestamp = new Date().getTime();
    const data = JSON.parse(event.body);
-   callback(null,data);
+   const response = {
+       statusCode: 200,
+       body: JSON.stringify(event),
+    };
+   callback(null,response);
    if (typeof data.text !== 'string') {
      console.error('Validation Failed'); // eslint-disable-line no-console
      callback(new Error('Couldn\'t create the todo item.'));
