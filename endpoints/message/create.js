@@ -9,7 +9,7 @@ const params = {
 };
 
 module.exports.create = (event, context, callback) => {
-	 callback(JSON.parse(event));
+	 callback(JSON.stringify(event));
       return;
   // fetch all todos from the database
   dynamoDb.scan(params, (error, result) => {
