@@ -9,7 +9,12 @@ const params = {
 };
 
 module.exports.create = (event, context, callback) => {
-	 callback(JSON.stringify(event));
+	    const response = {
+      statusCode: 200,
+      body: JSON.stringify(event),
+    };
+    callback(null, response);
+
       return;
   // fetch all todos from the database
   dynamoDb.scan(params, (error, result) => {
@@ -27,10 +32,6 @@ module.exports.create = (event, context, callback) => {
 
     };
 
-    const response = {
-      statusCode: 200,
-      body: JSON.stringify(data),
-    };
-    callback(null, response);
+
   });
 };
