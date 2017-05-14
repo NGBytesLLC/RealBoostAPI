@@ -25,8 +25,7 @@ module.exports.list = (event, context, callback) => {
     		limit:100,
     	},
     	message: "",
-    	success: "true",
-    	start: '0'
+    	success: true,
 
     };
 
