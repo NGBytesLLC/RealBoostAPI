@@ -1,38 +1,49 @@
 'use strict';
+ 
+ const uuid = require('uuid');
+ const AWS = require('aws-sdk');
+ 
+ const dynamoDb = new AWS.DynamoDB.DocumentClient();
+ 
+ module.exports.create = (event, context, callback) => {
+  const timestamp = new Date().getTime();
+  const data = JSON.parse(event.body);
+  if (typeof data.text !== 'string') {
+    console.error('Validation Failed'); // eslint-disable-line no-console
+    callback(new Error('Couldn\'t create the todo item.'));
+    return;
+  }
+  const params = {
+    TableName: 'message-'+process.env.custom_stage,
+    Item: {
+      id: uuid.v1(),
+    },
+  };
+	if (event.body){
+    if (event.body.sender !=null){
+    	params.Item.sender = event.body.sender;
 
-//trying the pipeline  dgdfgdfgd
-const AWS = require('aws-sdk');
+    }
+    if (event.body.receiver !=null){
 
-const dynamoDb = new AWS.DynamoDB.DocumentClient();
-const params = {
-  TableName: 'message-'+process.env.custom_stage,
-};
+    }
+  }
 
-module.exports.create = (event, context, callback) => {
-	    const response = {
-      statusCode: 200,
-      body: JSON.stringify(event.body),
-    };	
-   const requestBody = event.body.sender;
-    callback(null, response);
-
-      return;
-  // fetch all todos from the database
-  dynamoDb.scan(params, (error, result) => {
-    // handle potential errors
-
-    const data = {
-    	data: {
-    		data: result.Items,
-    		start: 0,
-    		total: result.Items.length,
-    		limit:100,
-    	},
-    	message: "",
-    	success: true,
-
-    };
-
-
-  });
-};
+ 
+   // write the todo to the database
+   dynamoDb.put(params, (error, result) => {
+     // handle potential errors
+     if (error) {
+       console.error(error); // eslint-disable-line no-console
+       callback(new Error('Couldn\'t create the todo item.'));
+       return;
+     }
+ 
+     // create a response
+     const response = {
+       statusCode: 200,
+       body: JSON.stringify(result.Item),
+     };
+     callback(null, response);
+   });
+ };
