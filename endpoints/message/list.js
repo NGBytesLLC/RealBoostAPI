@@ -19,14 +19,14 @@ module.exports.list = (event, context, callback) => {
       return;
     }
     const data = {
-    	data: JSON.stringify(result.Items),
+    	data: result.Items,
     	message: "",
     	success: "true",
     };
 
     const response = {
       statusCode: 200,
-      body: data,
+      body: JSON.stringify(data),
     };
     callback(null, response);
   });
