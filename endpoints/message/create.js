@@ -20,24 +20,6 @@
     },
   };
 
-     // create a response
-  const response = {
-       statusCode: 200,
-       body: JSON.stringify(params.Item),
-     };
-     callback(null, response);
-     return;
-	if (event.body){
-    if (event.body.sender !=null){
-    	params.Item.sender = event.body.sender;
-
-    }
-    if (event.body.receiver !=null){
-
-    }
-  }
-
- 
    // write the todo to the database
    dynamoDb.put(params, (error, result) => {
      // handle potential errors
@@ -47,6 +29,11 @@
        return;
      }
  
-
+     // create a response
+     const response = {
+       statusCode: 200,
+       body: JSON.stringify(result.Item),
+     };
+     callback(null, response);
    });
  };
