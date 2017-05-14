@@ -21,8 +21,8 @@ module.exports.list = (event, context, callback) => {
     const data = {
     	data: JSON.stringify(result.Items),
     	message: "",
-    	success: "true"
-    },
+    	success: "true",
+    };
 
     const response = {
       statusCode: 200,
