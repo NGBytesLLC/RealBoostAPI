@@ -61,12 +61,13 @@ resources:
             AttributeType: S
           -
             AttributeName: html
-            AttributeType:
+            AttributeType: S
 
         KeySchema:
           -
             AttributeName: uuid
             KeyType: HASH
+
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
