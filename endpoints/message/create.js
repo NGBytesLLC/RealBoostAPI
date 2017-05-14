@@ -16,7 +16,7 @@
   const params = {
     TableName: 'message-'+process.env.custom_stage,
     Item: {
-      id: uuid.v1(),
+      uuid: uuid.v1(),
     },
   };
 
@@ -32,7 +32,7 @@
      // create a response
      const response = {
        statusCode: 200,
-       body: JSON.stringify(result.Item),
+       body: JSON.stringify(params.Item),
      };
      callback(null, response);
    });
