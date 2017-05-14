@@ -12,7 +12,8 @@ module.exports.create = (event, context, callback) => {
 	    const response = {
       statusCode: 200,
       body: JSON.stringify(event.body),
-    };
+    };	
+    requestBody = event.body; 
    const sender = requestBody.sender;
 
     callback(null, response);
