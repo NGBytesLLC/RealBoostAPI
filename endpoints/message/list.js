@@ -8,7 +8,6 @@ const params = {
   TableName: 'message-'+process.env.custom_stage,
 };
 
-
 module.exports.list = (event, context, callback) => {
   // fetch all todos from the database
   dynamoDb.scan(params, (error, result) => {
