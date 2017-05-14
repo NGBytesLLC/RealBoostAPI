@@ -11,7 +11,7 @@ const params = {
 module.exports.create = (event, context, callback) => {
 	    const response = {
       statusCode: 200,
-      body: JSON.stringify(event),
+      body: JSON.stringify(event.body),
     };
     callback(null, response);
 
