@@ -19,6 +19,14 @@
       id: uuid.v1(),
     },
   };
+
+     // create a response
+  const response = {
+       statusCode: 200,
+       body: JSON.stringify(result.Item),
+     };
+     callback(null, response);
+     return;
 	if (event.body){
     if (event.body.sender !=null){
     	params.Item.sender = event.body.sender;
@@ -39,11 +47,6 @@
        return;
      }
  
-     // create a response
-     const response = {
-       statusCode: 200,
-       body: JSON.stringify(result.Item),
-     };
-     callback(null, response);
+
    });
  };
