@@ -13,7 +13,7 @@ module.exports.create = (event, context, callback) => {
       statusCode: 200,
       body: JSON.stringify(event.body),
     };	
-   const requestBody = event.body;
+   const requestBody = event.body.sender;
     callback(null, response);
 
       return;
