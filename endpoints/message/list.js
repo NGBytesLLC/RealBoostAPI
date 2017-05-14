@@ -18,15 +18,11 @@ module.exports.list = (event, context, callback) => {
       callback(new Error('Couldn\'t fetch the users messages.'));
       return;
     }
-    const data = {
-    	data: JSON.stringify(result.Items),
-    	message: ""
-    	success: true
-    }
+
 
     const response = {
       statusCode: 200,
-      body: data,
+      body: JSON.stringify(result.Items),
     };
     callback(null, response);
   });
