@@ -27,7 +27,7 @@ functions:
     events:
       - http:
           path: message/create
-          method: get
+          method: post
           cors: true
   list_message:
     handler: endpoints/message/list.list

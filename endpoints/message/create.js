@@ -4,10 +4,12 @@
  const AWS = require('aws-sdk');
  
  const dynamoDb = new AWS.DynamoDB.DocumentClient();
+ const TableName = 'message-'+process.env.custom_stage;
  
  module.exports.create = (event, context, callback) => {
    const timestamp = new Date().getTime();
    const data = JSON.parse(event.body);
+   callback(null,data);
    if (typeof data.text !== 'string') {
      console.error('Validation Failed'); // eslint-disable-line no-console
      callback(new Error('Couldn\'t create the todo item.'));
@@ -15,13 +17,14 @@
    }
  
    const params = {
-     TableName: 'message',
+     TableName: TableName,
      Item: {
        id: uuid.v1(),
-       text: data.text,
-       checked: false,
-       createdAt: timestamp,
-       updatedAt: timestamp,
+       date: timestamp,
+       type: type,
+       sender: sender,
+       receiver: receiver,
+       html: html,
      },
    };
  
