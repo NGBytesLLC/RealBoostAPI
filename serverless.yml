@@ -47,22 +47,6 @@ resources:
           -
             AttributeName: uuid
             AttributeType: S
-          - 
-            AttributeName: date
-            AttributeType: S
-          - 
-            AttributeName: type
-            AttributeType: S
-          - 
-            AttributeName: sender
-            AttributeType: S
-          - 
-            AttributeName: receiver
-            AttributeType: S
-          -
-            AttributeName: html
-            AttributeType: S
-
         KeySchema:
           -
             AttributeName: uuid
