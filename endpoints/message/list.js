@@ -22,7 +22,7 @@ module.exports.list = (event, context, callback) => {
     	data: {
     		data: result.Items,
     		start: 0,
-    		total: result.Items.length(),
+    		total: result.Items.length,
     		limit:100,
     	},
     	message: "",
