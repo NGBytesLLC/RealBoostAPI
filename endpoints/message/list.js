@@ -19,9 +19,15 @@ module.exports.list = (event, context, callback) => {
       return;
     }
     const data = {
-    	data: result.Items,
+    	data: {
+    		data: result.Items,
+    		start:0,
+    		limit:100,
+    	},
     	message: "",
     	success: "true",
+    	start: '0'
+
     };
 
     const response = {
