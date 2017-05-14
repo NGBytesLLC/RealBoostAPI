@@ -21,7 +21,8 @@ module.exports.list = (event, context, callback) => {
     const data = {
     	data: {
     		data: result.Items,
-    		start:0,
+    		start: 0,
+    		total: result.Items.length(),
     		limit:100,
     	},
     	message: "",
