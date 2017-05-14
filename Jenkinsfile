@@ -38,7 +38,7 @@ pipeline {
       steps {
         sh 'echo $HOME'
         echo 'In the dev build step.'
-        sh "serverless deploy --stage dev"
+        sh "serverless deploy --stage devs"
       }
     }
     stage('test') {
