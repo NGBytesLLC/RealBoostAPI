@@ -14,6 +14,7 @@
        body: JSON.stringify(event),
     };
    callback(null,response);
+   return;
    if (typeof data.text !== 'string') {
      console.error('Validation Failed'); // eslint-disable-line no-console
      callback(new Error('Couldn\'t create the todo item.'));
@@ -41,11 +42,6 @@
        return;
      }
  
-     // create a response
-     const response = {
-       statusCode: 200,
-       body: JSON.stringify(result.Item),
-     };
-     callback(null, response);
+
    });
  };
